@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gerenciador de Tarefas</title>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body>
+  <nav id="sidebar">
+    <div id="sidebar_content">
+      <div id="user">
+        <img src="../img/avatar.png" id="user_avatar" alt="Avatar" />
+        <div id="user_infos">
+          <p id="user_nome"></p>
+          <p id="user_email" class="email"><span></span></p>
+        </div>
+      </div>
+
+      <ul id="side_items">
+        <li class="side-item active">
+          <a href="#">
+            <i class="fa-solid fa-list-check"></i>
+            <span class="item-description">Minhas Tarefas</span>
+          </a>
+        </li>
+        <li class="side-item">
+          <a href="#">
+            <i class="fa-solid fa-tags"></i>
+            <span class="item-description">Categorias</span>
+          </a>
+        </li>
+        <li class="side-item">
+          <a href="#">
+            <i class="fa-solid fa-calendar-day"></i>
+            <span class="item-description">Prazo</span>
+          </a>
+        </li>
+        <li class="side-item">
+          <a href="#">
+            <i class="fa-solid fa-gear"></i>
+            <span class="item-description">Configurações</span>
+          </a>
+        </li>
+      </ul>
+
+      <button id="open_btn">
+        <i id="open_btn_icon" class="fa-solid fa-chevron-right"></i>
+      </button>
+    </div>
+
+    <div id="toggle_theme">
+      <button id="dark_mode_toggle">
+        <i class="fa-solid fa-moon"></i>
+        <span class="item-description">Modo Escuro</span>
+      </button>
+    </div>
+
+    <div id="logout">
+      <button id="logout_btn">
+        <i class="fa-solid fa-right-from-bracket"></i>
+        <span class="item-description">Logout</span>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+    <section id="secao-minhas-tarefas">
+      <h2>Adicionar Tarefa</h2>
+      <form id="form_tarefa">
+        <input type="text" placeholder="Título" id="titulo" required />
+        <input type="text" placeholder="Descrição" id="descricao" />
+        <select id="categoria" required>
+          <option value="">Selecione uma categoria</option>
+          <option value="Pessoal">Pessoal</option>
+          <option value="Trabalho">Trabalho</option>
+          <option value="Estudo">Estudo</option>
+          <option value="Casa">Casa</option>
+          <option value="Urgente">Urgente</option>
+        </select>
+        <input type="date" id="prazo" />
+        <select id="status">
+          <option value="pendente">Pendente</option>
+          <option value="concluida">Concluída</option>
+        </select>
+        <button type="submit">Adicionar</button>
+      </form>
+
+      <h2>Tarefas</h2>
+      <ul id="lista-tarefas-container"></ul>
+    </section>
+
+    <section id="secao-categorias" class="hidden">
+      <h2>Categorias</h2>
+      <ul id="lista-categorias"></ul>
+      <ul id="tarefas-filtradas-container"></ul>
+    </section>
+
+    <section id="secao-prazo" class="hidden">
+      <h2>Prazo</h2>
+      <ul id="lista-prazos-container"></ul>
+    </section>    
+
+    <section id="secao-configuracoes" class="hidden">
+      <h2>Configurações de Usuário</h2>
+      <form id="form_configuracoes">
+        <input type="text" id="config_nome" placeholder="Nome de usuário" required />
+        <input type="text" id="config_senha" placeholder="Nova senha (opcional)" />
+        <button type="submit">Atualizar Dados</button>
+      </form>
+    </section>    
+  </main>
+  <script src="../js/functions/func_dashboard.js"></script>
+  <script src="../js/ui/designer_dashboard.js"></script>
+  <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script> 
+</body>
+</html>

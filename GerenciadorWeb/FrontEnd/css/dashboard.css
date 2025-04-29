@@ -1,0 +1,613 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.hidden {
+    display: none !important;
+}
+
+
+body {
+    display: flex;
+    min-height: 100vh;
+    background: linear-gradient(90deg, #e2e2e2, #F6DFC6);  
+}
+
+
+body.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+main {
+    padding: 20px;
+    padding-left: calc(20px + 10px);
+    width: 100%;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+main section {
+    transition: none;
+}
+
+#sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #ffffff;
+    height: 100vh;
+    border-radius: 0px 18px 18px 0px;
+    position: relative;
+    transition: all .5s;
+    min-width: 82px;
+    z-index: 2;
+}
+
+#sidebar_content {
+    padding: 12px;
+}
+
+#user {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+#user_avatar {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+#user_infos {
+    display: flex;
+    flex-direction: column;
+}
+
+#user_infos .item-description.email {
+    color: #6b6b6b;
+    font-size: 12px;
+}
+
+#side_items {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    list-style: none;
+}
+
+.side-item {
+    border-radius: 8px;
+    padding: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.side-item.active {
+    background: #F66D00;
+    color: #e3e9f7;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.side-item:hover:not(.active),
+#logout_btn:hover {
+    background-color: #F6DFC6;
+}
+
+.side-item a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0a0a0a;
+    transition: color 0.3s ease;
+}
+
+
+.side-item.active a {
+    color: #e3e9f7;
+}
+
+.tarefa-item.concluida {
+    background-color: #d1ffd6;
+    text-decoration: line-through;
+}
+
+.side-item a i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+}
+
+#user_infos {
+    opacity: 0;
+    max-width: 0;
+    transition: opacity 0.3s ease, max-width 0.3s ease;
+    white-space: nowrap;
+    overflow: hidden;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+#sidebar.open-sidebar #user_infos {
+    opacity: 1;
+    max-width: 200px;
+}
+
+.email{
+    opacity: 0.5;
+    font-weight: normal;
+}
+
+#logout {
+    border-top: 1px solid #e3e9f7;
+    padding: 12px;
+}
+
+#logout_btn {
+    border: none;
+    padding: 12px;
+    font-size: 14px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    border-radius: 8px;
+    text-align: start;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+#open_btn {
+    position: absolute;
+    top: 30px;
+    right: -10px;
+    background: #F66D00;
+    color: #e3e9f7;
+    border-radius: 100%;
+    width: 20px;
+    height: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+#open_btn_icon {
+    transition: transform .3s ease;
+}
+
+.open-sidebar #open_btn_icon {
+    transform: rotate(180deg);
+}
+
+.item-description {
+    width: 0px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 14px;
+    transition: width .6s;
+    height: 0px;
+}
+
+#sidebar.open-sidebar {
+    min-width: 15%;
+}
+
+#sidebar.open-sidebar .item-description {
+    width: 150px;
+    height: auto;
+}
+
+#sidebar.open-sidebar .side-item a {
+    justify-content: flex-start;
+    gap: 14px;
+}
+
+#toggle_theme {
+    padding: 12px;
+    margin-top: auto;
+}
+
+#dark_mode_toggle {
+    border: none;
+    padding: 12px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    background-color: transparent;
+    cursor: pointer;
+    color: #0a0a0a;
+}
+
+#secao-configuracoes {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+}
+
+#secao-configuracoes h2 {
+    margin-bottom: 20px;
+    font-size: 22px;
+    color: #333;
+}
+
+#form_configuracoes {
+    display: flex;
+    flex-direction: column;    
+}
+
+#form_configuracoes label {
+    font-weight: 600;
+    margin-top: 10px;
+    color: #333;
+}
+
+#form_configuracoes input {
+    background: #eee;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    color: #333;
+    font-weight: 500;
+    width: 100%;
+    height: 40px;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+#form_configuracoes input:focus {
+    border: 2px solid #F66D00;
+    background: #fff;
+    box-shadow: 0 0 5px rgba(246, 109, 0, 0.5);
+}
+
+#form_configuracoes button {
+    background: #F66D00;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    font-weight: 600;
+    height: 40px;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#form_configuracoes button:hover {
+    background-color: #ff8533;
+    transform: scale(1.05);
+}
+
+#form_configuracoes button:active {
+    transform: scale(0.95);
+}
+
+/* Modo escuro para configurações */
+body.dark #secao-configuracoes {
+    background-color: #2c2c2c;
+}
+
+body.dark #form_configuracoes label,
+body.dark #secao-configuracoes h2 {
+    color: #fff;
+}
+
+body.dark #form_configuracoes input {
+    background-color: #444;
+    color: #fff;
+}
+
+body.dark #form_configuracoes input:focus {
+    background-color: #fff;
+    color: #000;
+}
+
+
+body.dark {
+    background: linear-gradient(90deg, #1e1e1e, #333);
+    color: #fff;
+}
+
+body.dark #logout_btn span {
+    color: #fff;
+}
+
+body.dark #logout_btn i {
+    color: #fff;
+}
+
+
+body.dark #sidebar {
+    background-color: #2c2c2c;
+}
+
+body.dark #secao-categorias h2 {
+    color: #fff;
+}
+
+body.dark .side-item {
+    color: #fff;
+}
+
+body.dark .side-item a {
+    color: #fff;
+}
+
+body.dark .conteudo-tarefa {
+    color: #0a0a0a;
+}
+
+
+
+body.dark .side-item.active {
+    background: #F66D00;
+    color: #fff;
+}
+
+body.dark .side-item.active a {
+    color: #fff;
+}
+
+body.dark #dark_mode_toggle {
+    color: #fff;
+}
+
+#tarefas-container {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+#lista-tarefas-container {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+#form_tarefa input,
+#form_tarefa select {
+    background: #eee;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    color: #333;
+    font-weight: 500;
+    width: 219px;
+    height: 40px;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+
+#form_tarefa input::placeholder,
+#form_tarefa select::placeholder {
+    color: #888;
+    font-weight: 400;
+}
+
+#form_tarefa input:focus,
+#form_tarefa select:focus {
+    border: 2px solid #F66D00;
+    background: #fff;
+    box-shadow: 0 0 5px rgba(246, 109, 0, 0.5);
+}
+
+#form_tarefa input:focus::placeholder,
+#form_tarefa select:focus::placeholder {
+    color: transparent;
+    transition: color 0.3s ease;
+}
+
+#form_tarefa button {
+    background: rgb(246, 109, 0);
+    border-radius: 8px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    font-weight: 600;
+    width: auto;
+    height: 40px;
+    padding: 10px 20px;
+    margin-top: 15px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+
+#form_tarefa button:hover {
+    background-color: rgb(255, 133, 51);
+    transform: scale(1.05);
+}
+
+#form_tarefa button:active {
+    transform: scale(0.95);
+}
+
+#lista-tarefas-container button {
+    background: rgb(246, 109, 0);
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    padding: 15px 15px; 
+    margin: 5px; 
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#lista-tarefas-container button:hover {
+    background-color: rgb(255, 133, 51);
+    transform: scale(1.05);
+}
+
+#lista-tarefas-container button:active {
+    transform: translateY(0);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.senha-visual {
+    background-color: #eee;
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+
+.tarefa-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #ffffff;
+    border-radius:  15px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 2px;
+    color: #000;
+}
+
+.tarefa-item button {
+    margin-left: 2px;
+}
+
+.tarefa-item > div {
+    display: flex;
+    gap: 2px;
+
+}
+
+.tarefa-item button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    font-size: 1.5rem;
+    height: 58px;
+    color: #555;
+    transition: color 0.3s ease, transform 0.3s ease;
+    align-items: center;
+    justify-content: center;
+}
+
+.tarefa-item button:hover {
+    color: #000;
+    transform: scale(1.2);
+}
+
+.tarefa-item > div {
+    display: flex;
+    justify-content: flex-end; 
+    gap: 10px;
+}
+
+#form_tarefa button:active {
+    transform: scale(0.95);
+}
+
+.tarefa-item.concluida {
+    background-color: #d1ffd6;
+    text-decoration: line-through;
+}
+
+#secao-categorias {
+    padding: 20px;
+}
+
+#secao-categorias h2 {
+    margin-bottom: 10px;
+    font-size: 22px;
+    color: #333;
+}
+
+#lista-categorias {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+#lista-categorias li {
+    background: rgb(246, 109, 0);
+    color: #fff;
+    padding: 10px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#lista-categorias li:hover {
+    background-color: rgb(255, 133, 51);
+    transform: scale(1.05);
+}
+
+#tarefas-filtradas-container {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+}
+
+#tarefas-filtradas-container .tarefa-item {
+    padding: 10px;
+    background-color: #fff;
+    border-left: 5px solid #f66d00;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+#tarefas-filtradas-container .tarefa-item.concluida {
+    background-color: #d1ffd6;
+    border-left: 5px solid #4CAF50;
+    text-decoration: line-through;
+}
+
+#tarefas-filtradas-container .tarefa-item strong {
+    font-size: 16px;
+    color: #333;
+}
+
+#tarefas-filtradas-container .tarefa-item p {
+    font-size: 14px;
+    color: #555;
+    margin: 2px 0;
+}
+
+#user_email {
+    overflow: hidden;
+    position: relative;
+    max-width: 150px;
+}
+
+#user_email span {
+    display: inline-block;
+    white-space: nowrap;
+    transition: transform var(--duracao-scroll, 8000ms) linear;
+    will-change: transform;
+}
+
+.scroll-email {
+    animation: scroll-left var(--duracao-scroll, 8000ms) linear infinite alternate;
+}
+
+@keyframes scroll-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-1 * (100% - 120px))); }
+}
+
+

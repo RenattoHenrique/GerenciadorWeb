@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>  
+    <meta charset="UTF-8">  
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Gerenciador de Tarefas</title>  
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">  
+    <link rel="stylesheet" href="../css/index.css"> 
+</head>  
+<body>
+    <div class="container">  
+        <div class="form-box login">  
+            <form action="">  
+                <h1>Login</h1>  
+                <div class="input-box">  
+                    <input id="email" type="email" placeholder="Endereço de e-mail" required>  
+                    <i class="bx bxs-user"></i>  
+                </div>  
+                <div class="input-box">  
+                    <input id="senha" type="password" maxlength="20" placeholder="Senha" required>  
+                    <i class="bx bxs-lock-alt"></i>  
+                </div>  
+                <div class="forgot-link">  
+                    <a href="#">Esqueceu a senha?</a>  
+                </div>  
+                <button type="submit" class="btn">Login</button>
+                <p>Entre com as contas abaixo</p>  
+                <div class="social-icons">    
+                    <a href="https://github.com/RenattoHenrique/GerenciadorWebApp" target="_blank" rel="noopener">
+                        <i class="bx bxl-github"></i>
+                    </a>  
+                    <a href="#" target="_blank" rel="noopener">
+                        <i class="bx bxl-facebook"></i>
+                    </a>  
+                    <a href="#" target="_blank" rel="noopener">
+                        <i class="bx bxl-linkedin"></i>
+                    </a>  
+                </div>  
+            </form>  
+        </div>  
+
+        <div class="form-box register">  
+            <form action="">  
+                <h1>Cadastrar</h1>  
+                <div class="input-box">  
+                    <input type="text" placeholder="Nome de usuário" required>  
+                    <i class="bx bxs-user"></i>  
+                </div>  
+                <div class="input-box">  
+                    <input type="email" placeholder="Email" required>  
+                    <i class="bx bxs-envelope"></i>  
+                </div> 
+                <div class="input-box">  
+                    <input type="password" maxlength="20" placeholder="Senha max(20)" required>  
+                    <i class="bx bxs-lock-alt"></i>  
+                </div>   
+                <button type="submit" class="btn">Cadastrar</button>
+                <p>Acesse os links abaixo</p>  
+                <div class="social-icons">    
+                    <a href="https://github.com/RenattoHenrique/gerenciadorTarefasAPI" target="_blank" rel="noopener">
+                        <i class="bx bxl-github"></i>
+                    </a>  
+                    <a href="#" target="_blank" rel="noopener">
+                        <i class="bx bxl-facebook"></i>
+                    </a>  
+                    <a href="#" target="_blank" rel="noopener">
+                        <i class="bx bxl-linkedin"></i>
+                    </a>  
+                </div>                 
+            </form>  
+        </div>  
+
+        <div class="toggle-box">  
+            <div class="toggle-panel toggle-left">  
+                <h1>Olá, Bem-vindo!</h1> 
+                <p class="slogan">Organize suas prioridades, execute com foco e veja seus objetivos se tornarem realidade. Que a força esteja com... sua lista de tarefas!🌟</p>  
+                <p>Não tem uma conta?</p>
+                <button class="btn register-btn">Cadastre</button>  
+            </div>  
+            
+            <div class="toggle-panel toggle-right">  
+                <h1>Bem vindo de volta!</h1>  
+                <p>Já tem uma conta?</p>  
+                <button class="btn login-btn">Login</button>  
+            </div>  
+        </div>  
+    </div>  
+
+    <script src="../js/functions/func_index.js"></script>
+    <script src="../js/ui/designer_index.js"></script>
+</body>
+</html>
